@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dl7eb4y01jv5m"]
+
+[ext_resource type="MeshLibrary" uid="uid://bte8pcrectmqb" path="res://libreria de mallas/MP.tres" id="1_io84i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0ioig"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_xi31o"]
+sky_material = SubResource("ProceduralSkyMaterial_0ioig")
+
+[sub_resource type="Environment" id="Environment_eciuy"]
+background_mode = 2
+sky = SubResource("Sky_xi31o")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_57alx"]
+albedo_color = Color(0, 0.20741352, 0.046367712, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2lask"]
+material = SubResource("StandardMaterial3D_57alx")
+size = Vector3(50, 15, 50)
+
+[node name="nivel 1" type="Node3D" unique_id=1938170875]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=262872076]
+environment = SubResource("Environment_eciuy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=513334529]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Piso" type="MeshInstance3D" parent="." unique_id=1427516723]
+transform = Transform3D(4.031334, 0, 0, 0, 0.13160104, 0, 0, 0, 3.5476925, 0, 0, -0.4923873)
+mesh = SubResource("BoxMesh_2lask")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=333421536]
+transform = Transform3D(1, 0, 0, 0, 0.8967878, 0.44246086, 0, -0.44246086, 0.8967878, 0.034055233, 32.10255, 104.41947)
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1178414308]
+mesh_library = ExtResource("1_io84i")
+data = {
+"cells": PackedInt32Array(65523, 2, 2, 65522, 65532, 13, 65521, 5, 20, 65521, 0, 4, 65522, 65534, 3, 65519, 65534, 14, 65519, 0, 14, 65519, 1, 14, 65518, 1, 14, 65518, 0, 14, 65518, 65535, 14, 65519, 65535, 14, 65519, 2, 14, 65518, 2, 14, 65519, 65533, 14, 65518, 65534, 14, 65518, 65533, 14, 65517, 2, 23, 65517, 3, 22, 65516, 0, 18, 65516, 65535, 18, 65516, 65534, 18, 65517, 65534, 18, 65517, 65533, 18, 65516, 65533, 18, 65515, 0, 18, 65516, 1, 18, 65517, 1, 18, 65516, 2, 18, 65516, 3, 18, 65517, 0, 18, 65517, 65535, 18, 65515, 2, 18, 65515, 1, 18, 65515, 3, 18, 65515, 65535, 18, 65515, 65534, 18, 65515, 65533, 18, 65515, 65532, 18, 65516, 65532, 18, 65517, 65532, 18, 65518, 5, 25, 65518, 65530, 25, 65519, 65530, 25, 65516, 65529, 26, 65516, 65530, 28, 65517, 65530, 27, 65518, 65531, 29, 65521, 65535, 1, 65521, 65534, 0, 65520, 65535, 0, 65522, 65535, 3, 65521, 3, 20, 65521, 4, 20, 65521, 7, 15, 65520, 5, 16, 65520, 6, 17, 65520, 3, 19, 65520, 2, 19, 65520, 4, 19, 65520, 8, 21, 65522, 65531, 13, 65521, 65531, 12, 65521, 65532, 12, 65522, 65529, 14, 65521, 65529, 15, 65523, 65530, 16, 65523, 65532, 17, 65519, 65523, 24, 65518, 65525, 25, 65518, 65528, 29, 65517, 65529, 655389, 65517, 65528, 1048605, 65518, 65529, 1441821, 65520, 65534, 1441792, 65522, 0, 1441793, 65522, 2, 2, 65517, 5, 3, 65516, 5, 3, 65518, 4, 4, 65519, 5, 4, 65519, 4, 4, 65514, 2, 5, 65514, 1, 6, 65514, 0, 7, 65513, 0, 8, 65514, 65535, 9, 65513, 1, 10, 65514, 3, 11, 65513, 2, 12, 65513, 3, 13, 65513, 65535, 1441806, 65514, 65534, 1441807, 65514, 65533, 1441808, 65513, 65533, 1441809, 65513, 65534, 1441810, 65512, 65534, 1441811, 65514, 65532, 1441812, 65512, 0, 1441813, 65512, 2, 1441814, 65512, 3, 1441815, 65512, 1, 1441816, 65512, 65535, 1441817, 65510, 65534, 1441818, 65511, 65535, 1441819, 65510, 65535, 1441820, 65510, 0, 1441821)
+}
+
+[node name="GridMap2" type="GridMap" parent="." unique_id=2131944468]
+mesh_library = ExtResource("1_io84i")
+collision_layer = 2
+collision_mask = 2
+data = {
+"cells": PackedInt32Array(65517, 65534, 1)
+}

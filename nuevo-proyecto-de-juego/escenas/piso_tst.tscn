@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b6xfw0n3ve6l2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xa0x"]
+albedo_color = Color(8.1822276e-07, 0.46956044, 0.46998918, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0q0kj"]
+material = SubResource("StandardMaterial3D_1xa0x")
+size = Vector3(2, 0.25, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f67lw"]
+size = Vector3(2, 0.25, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehn40"]
+albedo_color = Color(3.85046e-07, 0.5043086, 0.5050168, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ttyyb"]
+material = SubResource("StandardMaterial3D_ehn40")
+size = Vector3(2.1, 0.26, 2.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wt4p"]
+size = Vector3(2.1, 0.26, 2.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yy07j"]
+albedo_color = Color(0.39576408, 0.24323449, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ehn40"]
+material = SubResource("StandardMaterial3D_yy07j")
+size = Vector3(2.1, 0.26, 2.1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bnikl"]
+radius = 0.2
+height = 1.0
+
+[node name="pisoTst" type="Node3D" unique_id=1563822802]
+
+[node name="pisoGeneral" type="MeshInstance3D" parent="." unique_id=1548764706]
+mesh = SubResource("BoxMesh_0q0kj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pisoGeneral" unique_id=910487160]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pisoGeneral/StaticBody3D" unique_id=374933164]
+shape = SubResource("BoxShape3D_f67lw")
+
+[node name="pisoRe_erencia" type="MeshInstance3D" parent="." unique_id=658180763]
+mesh = SubResource("BoxMesh_ttyyb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pisoRe_erencia" unique_id=1403757780]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pisoRe_erencia/StaticBody3D" unique_id=21221816]
+shape = SubResource("BoxShape3D_7wt4p")
+
+[node name="piso_raro" type="MeshInstance3D" parent="." unique_id=1000726320]
+mesh = SubResource("BoxMesh_ehn40")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="piso_raro" unique_id=1656371064]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="piso_raro/StaticBody3D" unique_id=130017369]
+shape = SubResource("BoxShape3D_7wt4p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="piso_raro" unique_id=1245849943]
+transform = Transform3D(0.7136512, 0.23558329, 0, -0.25619882, 0.6562258, 0, 0, 0, 0.7686998, 0, 0.5060967, 0)
+mesh = SubResource("CapsuleMesh_bnikl")
