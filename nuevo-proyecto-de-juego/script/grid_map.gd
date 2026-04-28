@@ -37,7 +37,5 @@ func _pinta_cuadro():
 	grid_map._crear_cuadro()
 	
 
-#func _cambia_loceta(nX: int,nZ: int, _tipoloceta: elocetas = elocetas.Relleno):
-	#var Vs3 = 
-	#grid_map.set_cell_item(Vector3i(nX,0,nZ), _tipoloceta,0)
-	#pass
+func _cambia_loceta(nX: int,nZ: int, _tipoloceta: elocetas = elocetas.Relleno):
+	grid_map.set_cell_item(Vector3i(nX,0,nZ), _tipoloceta,0)
