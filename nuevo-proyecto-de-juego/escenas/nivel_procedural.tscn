@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dp0nw4ohjbbnn" path="res://script/nivel_procedural.gd" id="1_djy6l"]
 [ext_resource type="PackedScene" uid="uid://culr6fpj0wigt" path="res://escenas/grid_map.tscn" id="2_dacdc"]
+[ext_resource type="PackedScene" uid="uid://ihrrnjec0prj" path="res://escenas/camera_picker.tscn" id="2_kfjx7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j1q2v"]
 sky_top_color = Color(0.02745098, 0.46666667, 0.96862745, 1)
@@ -34,7 +35,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1276438014]
 environment = SubResource("Environment_dacdc")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=704619051]
+[node name="CameraPicker" parent="." unique_id=509912479 instance=ExtResource("2_kfjx7")]
 transform = Transform3D(1, 0, 0, 0, 0.016213378, 0.9998686, 0, -0.9998686, 0.016213378, 6.745207, 66.159, 0)
 
 [node name="Piso_R" type="MeshInstance3D" parent="." unique_id=133395722]
