@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 			var collision_point = ray_cast_3d.get_collision_point()
 			var cell = collider.local_to_map(collision_point)
 			if Input.is_action_just_pressed("cambio_celda"):
-				collider.set_cell_item(cell,1)
+				collider.set_cell_item(cell,2)
 
 		
 	

@@ -10,7 +10,7 @@ enum elocetas {Base, Enemigos, Entrada, Items, Limite, Relleno, Salida, Otro}
 @onready var grid_map: GridMap = $GridMap
 
 var txt_map: String = "
-XXXXXXXXXX
+XSSSSSSSSX
 XXXXXXXXXX
 XXXXXXXXXX
 XXSXXXXSXX
