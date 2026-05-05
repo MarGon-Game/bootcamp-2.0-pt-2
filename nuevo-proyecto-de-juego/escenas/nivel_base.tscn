@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://nmhrpjglkm21"]
+
+[ext_resource type="PackedScene" uid="uid://ihrrnjec0prj" path="res://escenas/camera_picker.tscn" id="1_7s6gp"]
+[ext_resource type="MeshLibrary" uid="uid://dv3rtj42kcvf5" path="res://libreria de mallas/Malla_Secundario.tres" id="2_3aqgb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ls46l"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ssnfb"]
+sky_material = SubResource("ProceduralSkyMaterial_ls46l")
+
+[sub_resource type="Environment" id="Environment_a3ec3"]
+background_mode = 2
+sky = SubResource("Sky_ssnfb")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m02fl"]
+albedo_color = Color(0.028152067, 0.02694295, 0.16633281, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cja6w"]
+material = SubResource("StandardMaterial3D_m02fl")
+size = Vector3(60, 0.5, 60)
+
+[sub_resource type="Curve3D" id="Curve3D_n4jvy"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -27.160954, 0, 18.294378, 0, 0, 0, 0, 0, 0, 13.779239, 0, 17.986849, 3.3828497, 0, -2.07584, -3.3828497, 0, 2.07584, 13.625476, 0, 10.298548, 0, 0, 0, 0, 0, 0, -18.173552, 0, 9.956802, 0, 0, 0, 0, 0, 0, -18.068953, 0, -1.9674222, 0, 0, 0, 0, 0, 0, 14.042773, 0, -2.281217, 0, 0, 0, 0, 0, 0, 13.938174, 0, -10.230701, 0, 0, 0, 0, 0, 0, -14.094209, 0, -10.021503, 0, 0, 0, 0, 0, 0, -14.303407, 0, -18.180183),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[node name="Nivel_Base" type="Node3D" unique_id=1628607495]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2027763043]
+environment = SubResource("Environment_a3ec3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=927179917]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CameraPicker" parent="." unique_id=509912479 instance=ExtResource("1_7s6gp")]
+
+[node name="piso_referencia" type="MeshInstance3D" parent="." unique_id=554218068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.6888304, 0)
+mesh = SubResource("BoxMesh_cja6w")
+
+[node name="GridMap" type="GridMap" parent="." unique_id=1093725856]
+mesh_library = ExtResource("2_3aqgb")
+cell_size = Vector3(4, 2, 4)
+data = {
+"cells": PackedInt32Array(65530, 65531, 5, 65530, 65532, 5, 65530, 65533, 5, 65530, 65534, 5, 65530, 65535, 5, 65530, 0, 5, 65530, 1, 5, 65530, 2, 5, 65530, 3, 5, 65530, 5, 5, 65531, 65531, 5, 65531, 65532, 5, 65531, 65533, 5, 65531, 65534, 5, 65531, 3, 5, 65531, 5, 5, 65532, 65534, 5, 65532, 0, 5, 65532, 1, 5, 65532, 3, 5, 65532, 5, 5, 65533, 65531, 5, 65533, 65532, 5, 65533, 65534, 5, 65533, 0, 5, 65533, 3, 5, 65533, 5, 5, 65534, 65531, 5, 65534, 65532, 5, 65534, 65534, 5, 65534, 0, 5, 65534, 3, 5, 65534, 5, 5, 65535, 65531, 5, 65535, 65534, 5, 65535, 0, 5, 65535, 3, 5, 65535, 5, 5, 0, 65531, 5, 0, 65534, 5, 0, 0, 5, 0, 3, 5, 0, 5, 5, 1, 65531, 5, 1, 65532, 5, 1, 65534, 5, 1, 0, 5, 1, 3, 5, 1, 5, 5, 2, 65531, 5, 2, 65532, 5, 2, 65534, 5, 2, 0, 5, 2, 1, 5, 2, 3, 5, 2, 5, 5, 3, 65531, 5, 3, 65532, 5, 3, 5, 5, 4, 65531, 5, 4, 65532, 5, 4, 65533, 5, 4, 65534, 5, 4, 3, 5, 4, 4, 5, 4, 5, 5, 5, 65531, 5, 5, 65532, 5, 5, 65533, 5, 5, 65534, 5, 5, 65535, 5, 5, 0, 5, 5, 1, 5, 5, 2, 5, 5, 3, 5, 5, 4, 5, 5, 5, 5, 4, 0, 5, 4, 1, 5, 4, 2, 5, 4, 65535, 5, 3, 0, 5, 3, 1, 5, 65535, 1, 5, 0, 1, 5, 1, 1, 5, 65533, 1, 5, 65534, 1, 5, 65535, 65532, 5, 0, 65532, 5, 65530, 65530, 5, 65531, 65530, 5, 65532, 65530, 5, 65533, 65530, 5, 65534, 65530, 5, 65535, 65530, 5, 0, 65530, 5, 1, 65530, 5, 2, 65530, 5, 3, 65530, 5, 4, 65530, 5, 5, 65530, 5)
+}
+
+[node name="Path3D" type="Path3D" parent="." unique_id=488654732]
+curve = SubResource("Curve3D_n4jvy")
