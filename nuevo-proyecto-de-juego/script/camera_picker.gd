@@ -18,8 +18,7 @@ func _process(delta: float) -> void:
 	
 	ray_cast_3d.target_position = project_local_ray_normal(mouse_position) * 100
 #	fuerza para actualizar la posicion 
-	ray_cast_3d.force_raycast_update()
-	
+	#ray_cast_3d.force_raycast_update()
 	if ray_cast_3d.is_colliding():
 		var collider = ray_cast_3d.get_collider()
 		if collider is GridMap:
@@ -28,6 +27,3 @@ func _process(delta: float) -> void:
 			if Input.is_action_just_pressed("cambio_celda"):
 				celda_seleccionada.emit(cell,collision_point)
 				#collider.set_cell_item(cell,tipo_loceta)
-
-		
-	

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dtba8gkousgup"]
+
+[ext_resource type="Script" uid="uid://dp0nw4ohjbbnn" path="res://script/nivel_procedural.gd" id="1_djy6l"]
+[ext_resource type="PackedScene" uid="uid://culr6fpj0wigt" path="res://escenas/grid_map.tscn" id="2_dacdc"]
+[ext_resource type="PackedScene" uid="uid://ihrrnjec0prj" path="res://escenas/camera_picker.tscn" id="2_kfjx7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j1q2v"]
+sky_top_color = Color(0.02745098, 0.46666667, 0.96862745, 1)
+sky_horizon_color = Color(0.54224956, 0.64430344, 0.7607937, 1)
+ground_horizon_color = Color(0.54224956, 0.64430344, 0.7607937, 1)
+
+[sub_resource type="Sky" id="Sky_djy6l"]
+sky_material = SubResource("ProceduralSkyMaterial_j1q2v")
+
+[sub_resource type="Environment" id="Environment_dacdc"]
+background_mode = 2
+sky = SubResource("Sky_djy6l")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dacdc"]
+albedo_color = Color(0.31465912, 0.31411394, 9.62615e-08, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kfjx7"]
+material = SubResource("StandardMaterial3D_dacdc")
+size = Vector3(60, 0.5, 60)
+
+[node name="Nivel_Procedural" type="Node3D" unique_id=745136655]
+script = ExtResource("1_djy6l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1781234249]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0.0142752165, 0.014275218, 0.014275218, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1276438014]
+environment = SubResource("Environment_dacdc")
+
+[node name="CameraPicker" parent="." unique_id=509912479 instance=ExtResource("2_kfjx7")]
+transform = Transform3D(1, 0, 0, 0, 0.4887735, 0.8724107, 0, -0.8724107, 0.4887735, 6.033102, 45.226784, 29.682981)
+
+[node name="Piso_R" type="MeshInstance3D" parent="." unique_id=133395722]
+mesh = SubResource("BoxMesh_kfjx7")
+
+[node name="Terreno" parent="." unique_id=1792506227 instance=ExtResource("2_dacdc")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1823879965]
+
+[node name="lbLoceta" type="Label" parent="CanvasLayer" unique_id=820508235]
+anchors_preset = -1
+anchor_right = 0.209
+anchor_bottom = 0.14500001
+offset_right = 0.23199463
+offset_bottom = 0.039993286
+theme_override_font_sizes/font_size = 90
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="celda_seleccionada" from="CameraPicker" to="." method="_on_camera_picker_celda_seleccionada"]
