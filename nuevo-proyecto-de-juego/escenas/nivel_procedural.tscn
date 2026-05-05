@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dp0nw4ohjbbnn" path="res://script/nivel_procedural.gd" id="1_djy6l"]
 [ext_resource type="PackedScene" uid="uid://culr6fpj0wigt" path="res://escenas/grid_map.tscn" id="2_dacdc"]
+[ext_resource type="PackedScene" uid="uid://ihrrnjec0prj" path="res://escenas/camera_picker.tscn" id="2_kfjx7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j1q2v"]
 sky_top_color = Color(0.02745098, 0.46666667, 0.96862745, 1)
@@ -34,10 +35,24 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1276438014]
 environment = SubResource("Environment_dacdc")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=704619051]
-transform = Transform3D(1, 0, 0, 0, 0.016213378, 0.9998686, 0, -0.9998686, 0.016213378, 6.745207, 66.159, 0)
+[node name="CameraPicker" parent="." unique_id=509912479 instance=ExtResource("2_kfjx7")]
+transform = Transform3D(1, 0, 0, 0, 0.4887735, 0.8724107, 0, -0.8724107, 0.4887735, 6.033102, 45.226784, 29.682981)
 
 [node name="Piso_R" type="MeshInstance3D" parent="." unique_id=133395722]
 mesh = SubResource("BoxMesh_kfjx7")
 
 [node name="Terreno" parent="." unique_id=1792506227 instance=ExtResource("2_dacdc")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1823879965]
+
+[node name="lbLoceta" type="Label" parent="CanvasLayer" unique_id=820508235]
+anchors_preset = -1
+anchor_right = 0.209
+anchor_bottom = 0.14500001
+offset_right = 0.23199463
+offset_bottom = 0.039993286
+theme_override_font_sizes/font_size = 90
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="celda_seleccionada" from="CameraPicker" to="." method="_on_camera_picker_celda_seleccionada"]

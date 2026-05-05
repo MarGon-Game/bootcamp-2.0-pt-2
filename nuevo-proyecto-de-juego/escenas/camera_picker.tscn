@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ihrrnjec0prj"]
+
+[ext_resource type="Script" uid="uid://cruuqsisgodse" path="res://script/camera_picker.gd" id="1_lckta"]
+
+[node name="CameraPicker" type="Camera3D" unique_id=509912479]
+transform = Transform3D(1, 0, 0, 0, 0.016213378, 0.9998686, 0, -0.9998686, 0.016213378, 0, 0, 0)
+script = ExtResource("1_lckta")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=933116048]
+target_position = Vector3(0, -1, -100)
