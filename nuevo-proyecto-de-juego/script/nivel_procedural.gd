@@ -3,8 +3,8 @@ extends Node3D
 class_name nivel_procedural
 
 @onready var terreno : gridprocedural = $Terreno
-@onready var camera_picker: CAMERA_PICKER = $CameraPicker
 @onready var lb_loceta: Label = $CanvasLayer/lbLoceta
+@onready var camera_picker: CAMERA_PICKER = $CameraPicker
 
 
 func _input(event: InputEvent) -> void:
@@ -52,7 +52,7 @@ func _input(event: InputEvent) -> void:
 		lb_loceta.text = str(terreno.tipoLoceta)
 		
 		
-
+#
 
 func _on_camera_picker_celda_seleccionada(_cell: Vector3i, _collision_point: Vector3) -> void:
 	terreno._cambia_loceta(_cell.x,_cell.z,terreno.tipoLoceta)
